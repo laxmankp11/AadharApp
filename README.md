@@ -32,13 +32,13 @@ This Laravel application implements user authentication (login and registration)
 1. Clone the repository:
 
     ```bash
-    git clone https://github.com/yourusername/your-repository.git
+    git clone https://github.com/laxmankp11/AadharApp.git
     ```
 
 2. Navigate to the project directory:
 
     ```bash
-    cd your-repository
+    cd AadharApp
     ```
 
 3. Install dependencies:
