@@ -26,6 +26,7 @@ This Laravel application implements user authentication (login and registration)
 
 - **Logout Option**:
     - After updating the Aadhar number, users can log out from the application.
+ 
 
 ## Installation
 
