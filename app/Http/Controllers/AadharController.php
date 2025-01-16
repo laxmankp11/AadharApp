@@ -24,7 +24,22 @@ class AadharController extends Controller
 
     public function updateAadhar(AadharRequest $request)
     {
-        
+        $request->validate([
+            'aadhar_number' => [
+                'required',
+                'digits:12',
+                function ($attribute, $value, $fail) {
+                    // Check if the decrypted Aadhar number exists in the database
+                    $existingUser = User::all()->first(function ($user) use ($value) {
+                        return Crypt::decryptString($user->aadhar_number) === $value;
+                    });
+    
+                    if ($existingUser) {
+                        $fail('The Aadhar number has already been taken.');
+                    }
+                },
+            ],
+        ]);
         $user = auth()->user();
         $encryptedAadhar = Crypt::encryptString($request->aadhar_number);
 
